@@ -1,20 +1,22 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShowUserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',function(){
+// Route::get('/',[ShowUserController::class,'showuser']);
+// Route::get('/authuser',[ShowUserController::class,'authuser']);
+
+
+//  Route::get('/report', function () {
+//     return view('report');
+// })->middleware('auth');
+
+
+Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/', function () {
-//     return redirect()->route('login');
-// });
-Route::get('/mangal',function(){
-  return view('mangal');
-})->middleware(['auth','verified'])->name('mangal');
-// Route::fallback(function (){
-//  return redirect()->route('login');
-// });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
